@@ -1,22 +1,18 @@
-import React, { useEffect,useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Cart = () => {
     const dispatch = useDispatch();
-    const [items, setItems] = useState([]);
-    const cart = useSelector(state=>state.Carts);
+    const items = useSelector(state=>state.Carts);
+    console.log(items);
+    useSelector(state=>state.numberCart);
 
-    useEffect(() => {
-      setItems(cart)
-
-    }, [cart])
     
     let TotalCart=0;
     items.forEach(item => {
         TotalCart+=item.quantity * item.price;
     });
 
-if (items.length!==0) {
   return (
     <table className="table">
         <thead>
@@ -67,6 +63,6 @@ if (items.length!==0) {
     </table>
   )
 }
-}
+
 
 export default Cart

@@ -51,29 +51,30 @@ function shopping(state = initProduct, action) {
             }
 
         case "INCREASE_QUANTITY":
-            state.numberCart++
             state.Carts[action.payload].quantity++;
-            
             return{
                 ...state,
-                Carts: state.Carts
+                Carts: state.Carts,
+                numberCart:state.numberCart +1
             }
 
         case "DECREASE_QUANTITY":
             let qty = state.Carts[action.payload].quantity;
             if(qty>1){
-                state.numberCart--;
                 state.Carts[action.payload].quantity--;
                 return{
                     ...state,
-                    Carts: state.Carts
+                    Carts: state.Carts,
+                    numberCart:state.numberCart -1
+
                 }
             } else{
-                state.numberCart--;
                 state.Carts[action.payload].quantity=0;
                 return{
                     ...state,
-                    Carts:state.Carts.filter(item=>item.id!==state.Carts[action.payload].id) 
+                    Carts:state.Carts.filter(item=>item.id!==state.Carts[action.payload].id),
+                    numberCart:state.numberCart -1
+ 
                 }
             }
 
