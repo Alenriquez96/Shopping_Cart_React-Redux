@@ -35,7 +35,7 @@ const Cart = () => {
                             payload: i
                         })}}>X</button></td>
                         <td>{item.title}</td>
-                        <td><img src={item.image} style={{ width: '100px', height: '80px' }} /></td>
+                        <td><img src={item.image} alt={item.title} style={{ width: '100px', height: '80px' }} /></td>
                         <td>{item.price} $</td>
                         <td>
                             <button style={{ margin: '2px',cursor: "pointer" }} onClick={() => {
@@ -50,13 +50,13 @@ const Cart = () => {
                                 payload: i
                             })}}>+</button>
                         </td>
-                        <td>{item.price * item.quantity} $</td>
+                        <td>{parseInt(item.price * item.quantity).toFixed(2)} $</td>
                     </tr>
                 )
             })   }
             <tr>
                 <td colSpan="5">Total: </td>
-                <td>{Number(TotalCart)} $</td>
+                <td>{Number(TotalCart).toFixed(2)} $</td>
             </tr>
         </tbody>
 

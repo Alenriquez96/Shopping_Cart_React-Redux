@@ -8,7 +8,7 @@ const Product = (props) => {
     <div className='productCard'>
         <h3>{props.product.title}</h3>
         <h4>{props.product.category}</h4>
-        <img src={props.product.image} alt={props.product.image}/>
+        <img src={props.product.image} alt={props.product.title}/>
         <h5>{props.product.price}</h5>
         <p>{props.product.description}</p>
         <button onClick={()=>{
@@ -21,4 +21,4 @@ const Product = (props) => {
   )
 }
 
-export default Product
+export default Product 
