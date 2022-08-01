@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Products = () => {
     const dispatch = useDispatch();
-    const _products = useSelector(state=>state._products)
-
+    const _products = useSelector(state=>state._products);
 
 
     useEffect(() => {
