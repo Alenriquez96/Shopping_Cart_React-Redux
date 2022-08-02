@@ -1,9 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Brawler&family=Montserrat:wght@500&family=Raleway:wght@100;400&family=UnifrakturMaguntia&display=swap');
+
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+#root > div{
+  min-height: 100vh;
+}
+
+main{
+  display: flex;
+    justify-content: center;  
+}
+
 a{
   text-decoration: none;
   color: black;
 }
 
 header{
+  background-color: #0000ff2e;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -17,11 +34,32 @@ header>a>img{
   width: 50px;
 }
 
+
 #productCardContainer{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+#productCardContainer>a>img{
+  height: 50px;
+  width: 50px;
+}
+
+#productCardContainer>a{
+  background-color: #0000ff2e;
+  border-radius: 50%;
+  position: inherit;
+  right: 10px;
+  bottom: 10px;
+  height: 90px;
+  z-index: 1;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  
 }
 
 .productCard{
@@ -31,17 +69,36 @@ header>a>img{
     align-content: center;
     align-items: center;
     text-align: center;
+    justify-content: space-between;
 }
 
 .productCard>img{
   width: 250px;
-  height: 300px;
+  height: 250px;
 }
 
 #cartIconContainer{
+  width: 90px;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
+.table{
+  width: 100%;
+}
+tbody>tr{
+  height: 120px;
+}
+
+td{
+  text-align: center;
+  max-height: 100px;
+}
+
+td>img{
+  width: 80px;
+  height: 80px;
+}
 
 

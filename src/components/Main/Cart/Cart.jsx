@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 const Cart = () => {
     const dispatch = useDispatch();
     const items = useSelector(state=>state.Carts);
-    console.log(items);
     useSelector(state=>state.numberCart);
 
     
@@ -50,13 +49,13 @@ const Cart = () => {
                                 payload: i
                             })}}>+</button>
                         </td>
-                        <td>{parseInt(item.price * item.quantity).toFixed(2)} $</td>
+                        <td><b>{parseInt(item.price * item.quantity).toFixed(2)} $</b></td>
                     </tr>
                 )
             })   }
             <tr>
                 <td colSpan="5">Total: </td>
-                <td>{Number(TotalCart).toFixed(2)} $</td>
+                <td><b>{Number(TotalCart).toFixed(2)} $</b></td>
             </tr>
         </tbody>
 
