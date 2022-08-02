@@ -22,17 +22,14 @@ const Products = () => {
         if (scroll > 100) {
             cart.style.position = "fixed";    
         } 
-        // else{
-        //     cart.style.position = "inherit"; 
-        // }
+        else if(cart!==null){
+            cart.style.position = "inherit"; 
+        }
         return () => {
           window.removeEventListener('scroll', detectScroll)
         }
     }, [scroll]);
-    console.log(scroll);
     
-
-
 
     useEffect(() => {
         const fetchData = async () =>{
