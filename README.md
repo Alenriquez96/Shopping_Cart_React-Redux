@@ -1,4 +1,4 @@
-# [**GO TO THE APP**](https://nasa-app-react-mern.netlify.app)
+# [**GO TO THE APP**](https://shopping-cart-react-reduxx.herokuapp.com/)
 
 
 ## Dependencies
