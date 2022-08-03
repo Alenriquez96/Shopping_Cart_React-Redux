@@ -19,6 +19,11 @@ npm i
 npm start 
 ```
 
+## Public Api
+```javascript
+https://fakestoreapi.com/products 
+```
+
 
 ### Products page view
 ![img](./src/assets/demoShopping1.png)
