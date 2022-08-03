@@ -1,7 +1,7 @@
 {
   "name": "shopping_cart_react_redux",
   "version": "0.1.0",
-  "homepage": "https://alenriquez96.github.io/Shopping_Cart_React-Redux",
+  "homepage": "https://alenriquez96.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
