@@ -20,7 +20,7 @@ a{
 }
 
 header{
-  background-color: #0000ff2e;
+  background-color: #a6b6df;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -48,7 +48,7 @@ header>a>img{
 }
 
 #productCardContainer>a{
-  background-color: #0000ff2e;
+  background-color: #a6b6df;
   border-radius: 50%;
   position: inherit;
   right: 10px;
