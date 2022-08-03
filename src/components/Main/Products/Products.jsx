@@ -28,6 +28,7 @@ const Products = () => {
         return () => {
           window.removeEventListener('scroll', detectScroll)
         }
+        // eslint-disable-next-line
     }, [scroll]);
     
 
@@ -44,6 +45,7 @@ const Products = () => {
                 console.log(error);
             }
         }
+        // eslint-disable-next-line
         fetchData();
     }, [])
     
