@@ -48,15 +48,23 @@ const Products = () => {
     }, [])
     
 
-  return (
-    <div id='productCardContainer'>
-        {_products.map((product,i)=><Product key={i} product={product}/>)}
-        <Link id='cartFixed' to="/cart" title='Shopping cart'>
-          <img src="https://i.pinimg.com/originals/15/bb/55/15bb559cdd28f56d7c17b00498b4a946.png" alt="shopping cart"/>
-          <span>{numberCart}</span>
-        </Link>
-    </div>
-  )
+    if (_products.length!==0) {
+        return (
+        <div id='productCardContainer'>
+            {_products.map((product,i)=><Product key={i} product={product}/>)}
+            <Link id='cartFixed' to="/cart" title='Shopping cart'>
+                <img src="https://i.pinimg.com/originals/15/bb/55/15bb559cdd28f56d7c17b00498b4a946.png" alt="shopping cart"/>
+                <span>{numberCart}</span>
+            </Link>
+        </div>
+        )
+    } 
+    else{
+        return(
+            <span className="loader"></span>
+
+        )
+    }
 }
 
 
