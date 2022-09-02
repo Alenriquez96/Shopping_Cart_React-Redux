@@ -1,4 +1,5 @@
-# [**GO TO THE APP**](https://shopping-cart-react-reduxx.herokuapp.com/)
+# Demo
+[**Live demo**](https://shopping-cart-react-reduxx.herokuapp.com/)
 
 
 ## Dependencies
