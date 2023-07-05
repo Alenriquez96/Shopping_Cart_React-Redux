@@ -1,6 +1,7 @@
 import { GET_ALL_PRODUCTS, ADD_CART, INCREASE_QUANTITY, DECREASE_QUANTITY, DELETE_CART } from './cartTypes'
 
-//Actions que seran llamadas como argumento en los dispatch que usemos
+//Actions que seran llamadas como argumento en los dispatch que usemos, se define el tipo  
+// y se pasa el "payload" (info que necesita la "action" para modificar el estado)
 export const getAllProducts = (products) => {
     return {
         type: GET_ALL_PRODUCTS,

@@ -3,14 +3,14 @@ import { GET_ALL_PRODUCTS, ADD_CART, INCREASE_QUANTITY, DECREASE_QUANTITY, DELET
 const INITIAL_STATE = {
     numberItems: 0,
     cartItems: [],
-    _products: [] //solo lo utilizamos para traer todos los productos del fetch y utilizarlo en "GET ALL"
+    _products: [] //solo lo utilizamos para traer todos los productos del fetch y utilizarlo en la action "GET ALL"
 }
 
-//Función reducer que define los diferentes tipos de "actions"
+//Función reducer que define lo que tiene que modificar cada tipo de "action"
 
 function cartReducer(state = INITIAL_STATE, action) { 
     
-    //Se crea un switch para definir varios tipos de "actions"
+    //Se declara un switch para definir las tareas para los tipos de "actions"
     switch (action.type) {
         //Accion para traer todos los productos, retorna el estado inicial, pero cambia "_products" con el payload que trae todo.
         case GET_ALL_PRODUCTS:
