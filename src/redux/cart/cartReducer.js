@@ -10,6 +10,7 @@ const INITIAL_STATE = {
 
 function cartReducer(state = INITIAL_STATE, action) { 
     
+    //Se declara una variable copia de cartItems para evitar la mutabilidad del estado en las operaciones
     let newCart = [...state.cartItems]
 
     //Se declara un switch para definir las tareas para los tipos de "actions"
@@ -22,8 +23,8 @@ function cartReducer(state = INITIAL_STATE, action) {
             }
         //Accion de añadir un producto al carrito
         case ADD_CART:
-            // Si el "numberItems" del estado inicial es 0, se define un objeto "cart", se pushea al array "cartItems", 
-            //que representa el array de productos del carrito
+            // Si el "numberItems" del estado inicial es 0, se define un objeto "cart", se pushea al array "newCart", 
+            //que representa la copia del array de productos del carrito
             
             if (state.numberItems === 0) {
                 let cart = {
@@ -40,7 +41,7 @@ function cartReducer(state = INITIAL_STATE, action) {
             //su cantidad en vez de añadirlo de nuevo
             } else {
                 let check = false;
-                //Verificar si id corresponde con id de algun producto de la cesta, si es asi, check=true
+                //Verificar si id corresponde con id de algun producto de la cesta, si es asi, check=true y aumenta la cantidad en 1
                 state.cartItems.forEach((item, i) => {
                     if (item.id === action.payload.id) {
                         newCart[i].quantity++;
@@ -62,7 +63,7 @@ function cartReducer(state = INITIAL_STATE, action) {
                     newCart.push(_cart);
                 }
             }
-            //Se retorna el estado ya actualizado y se aumenta la clave "numberItems" en +1
+            //Se retorna el estado ya actualizado y se aumenta la clave "numberItems" en +1 y se guarda cartItems como la copia modificada (newCart)
             return {
                 ...state,
                 cartItems: newCart,
