@@ -10,6 +10,8 @@ const INITIAL_STATE = {
 
 function cartReducer(state = INITIAL_STATE, action) { 
     
+    let newCart = [...state.cartItems]
+
     //Se declara un switch para definir las tareas para los tipos de "actions"
     switch (action.type) {
         //Accion para traer todos los productos, retorna el estado inicial, pero cambia "_products" con el payload que trae todo.
@@ -33,7 +35,7 @@ function cartReducer(state = INITIAL_STATE, action) {
                     price: action.payload.price,
                     description: action.payload.description
                 }
-                state.cartItems.push(cart);
+                newCart.push(cart);
             //Si no, se define un booleano en false que sirve para verificar si el producto ya se encontrabaen la cesta y aumentar 
             //su cantidad en vez de añadirlo de nuevo
             } else {
@@ -41,7 +43,7 @@ function cartReducer(state = INITIAL_STATE, action) {
                 //Verificar si id corresponde con id de algun producto de la cesta, si es asi, check=true
                 state.cartItems.forEach((item, i) => {
                     if (item.id === action.payload.id) {
-                        state.cartItems[i].quantity++;
+                        newCart[i].quantity++;
                         check = true;
                     }
 
@@ -57,46 +59,47 @@ function cartReducer(state = INITIAL_STATE, action) {
                         price: action.payload.price,
                         description: action.payload.description
                     }
-                    state.cartItems.push(_cart);
+                    newCart.push(_cart);
                 }
             }
             //Se retorna el estado ya actualizado y se aumenta la clave "numberItems" en +1
             return {
                 ...state,
+                cartItems: newCart,
                 numberItems: state.numberItems + 1
             }
         //Acción para incrementar la cantidad de un producto del carrito
         case INCREASE_QUANTITY:
             //Se modifica la cantidad de producto pasado por el "payload"
-            state.cartItems[action.payload].quantity++;
+            newCart[action.payload].quantity++;
             //Se retorna el estado actual, modificando "cartItems" y aumentando en +1 "numberItems"
             return {
                 ...state,
-                cartItems: state.cartItems,
+                cartItems: newCart,
                 numberItems: state.numberItems + 1
             }
         //Acción para decrementar cantidad de un producto en carrito
         case DECREASE_QUANTITY:
             //Declaras una variable con la cantidad del producto del payload
-            let qty = state.cartItems[action.payload].quantity;
+            let qty = newCart[action.payload].quantity;
             //Si la cantidad es mayor a 1, se resta 1 a la cantidad
             if (qty > 1) {
-                state.cartItems[action.payload].quantity--;
+                newCart[action.payload].quantity--;
                 //Se retorna el state, modificando cartItems (se ha modificado "quantity" de un producto) y numberItems (-1)
                 return {
                     ...state,
-                    cartItems: state.cartItems,
+                    cartItems: newCart,
                     numberItems: state.numberItems - 1
 
                 }
             //Si la cantidad es 1
             } else {
                 //Se iguala a 0 la cantidad del producto pasado por el payload
-                state.cartItems[action.payload].quantity = 0;
+                newCart[action.payload].quantity = 0;
                 //Se retorna el estado actual, modificando cartItems, filtrando e producto eliminado y restando 1 al numberItems
                 return {
                     ...state,
-                    cartItems: state.cartItems.filter(item => item.id !== state.cartItems[action.payload].id),
+                    cartItems: newCart.filter(item => item.id !== state.cartItems[action.payload].id),
                     numberItems: state.numberItems - 1
 
                 }
