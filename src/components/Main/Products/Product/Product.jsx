@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { addToCart } from "../../../../redux";
 
 
 const Product = (props) => {
@@ -12,10 +13,7 @@ const Product = (props) => {
         <h5>{props.product.price} $</h5>
         <p>{props.product.description}</p>
         <button onClick={()=>{
-          dispatch({
-            type: "ADD_CART",
-            payload: props.product
-          })
+          dispatch(addToCart(props.product))
         }}>Add to cart</button>
     </div>
   )
